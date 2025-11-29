@@ -1,8 +1,8 @@
 StoreManager: Microservices Inventory Application
 ---
 
-### 📋 Project Overview
-This project demonstrates the migration of a monolithic inventory management system into a distributed Microservices Architecture. The application is containerized using Docker and orchestrated using Kubernetes.
+### 📋 Overview
+This assignment demonstrates the migration of a monolithic inventory management system into a distributed Microservices Architecture. The application is containerized using Docker and orchestrated using Kubernetes.
 It consists of two decoupled services:
 
 Frontend Service: A Flask-based UI that handles user interactions.
