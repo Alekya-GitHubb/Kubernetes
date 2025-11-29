@@ -72,25 +72,21 @@ Communication: HTTP/REST over Kubernetes internal DNS (inventory-service).
 
 ### ⚖️ Trade-offs & Analysis
 While moving to microservices improved scalability, it introduced specific challenges:
-Operational Complexity: Managing two services and networking is more complex than a single script.
-Data Persistence: Currently, data is stored in-memory. If the Backend pod restarts, data is lost.
-Network Latency: Communication now requires HTTP calls, introducing slight latency compared to direct function calls.
-
----
-### 📂 Project Structure
-
-FileDescriptionFrontend.pySource code for the User Interface service.Backend_api.pySource code for the Inventory Data API.Dockerfile.frontendInstructions to build the Frontend Docker image.Dockerfile.backendInstructions to build the Backend Docker image.k8s-deployment.yamlKubernetes configuration for Deployments and Services.requirements.txtPython dependencies (Flask, requests, etc.).
+1. Operational Complexity: Managing two services and networking is more complex than a single script.
+2. Data Persistence: Currently, data is stored in-memory. If the Backend pod restarts, data is lost.
+3. Network Latency: Communication now requires HTTP calls, introducing slight latency compared to direct function calls.
 
 ---
 
 ### 🚀 How to Run (Deployment Guide)
+
 Follow these steps to deploy the application on a local Kubernetes cluster (Docker Desktop, Minikube, or Kind).
 1. Build the Docker Containers
 First, package the source code into Docker images. Run these commands from the root directory:
-# Build Backend Image
+ Build Backend Image
 docker build -f Dockerfile.backend -t store-backend:v1 .
 
-# Build Frontend Image
+ Build Frontend Image
 docker build -f Dockerfile.frontend -t store-frontend:v1 .
 
 
@@ -102,13 +98,12 @@ kubectl apply -f k8s-deployment.yaml
 3. Verify Deployment
 Check the status of the pods to ensure they are running:
 kubectl get pods
-
-
 Expected Output: You should see two pods (one for backend, one for frontend) with status Running.
+
+
 4. Access the Application
 Check the services to find the access URL:
 kubectl get services
-
 
 Browser Access: Open http://localhost (or the EXTERNAL-IP listed for frontend-service).
 You should see the StoreManager interface where you can Add and Delete items.
@@ -116,14 +111,19 @@ You should see the StoreManager interface where you can Add and Delete items.
 ---
 
 ### 📸 Screenshots
+
 Please refer to the screenshots/ folder in this repository for screenshots of the running application and Kubernetes cluster state.
 
 ---
 
 ### 🔮 Future Roadmap
+
 To prepare this application for a production environment, the following enhancements are recommended:
-Persistent Storage: Integrate a database (e.g., PostgreSQL) with PVCs to ensure data survives restarts.
-Observability: Implement logging (EFK Stack) and monitoring (Prometheus) to track service health.
-CI/CD Pipeline: Automate builds so pushing code to GitHub automatically updates the cluster.
+
+1.Persistent Storage: Integrate a database (e.g., PostgreSQL) with PVCs to ensure data survives restarts.
+
+2.Observability: Implement logging (EFK Stack) and monitoring (Prometheus) to track service health.
+
+3.CI/CD Pipeline: Automate builds so pushing code to GitHub automatically updates the cluster.
 
 
