@@ -1,0 +1,80 @@
+# --- BACKEND DEPLOYMENT ---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: inventory-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: inventory-backend
+  template:
+    metadata:
+      labels:
+        app: inventory-backend
+    spec:
+      containers:
+      - name: backend
+        image: store-backend:v1
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 5001
+
+---
+
+# --- BACKEND SERVICE ---
+apiVersion: v1
+kind: Service
+metadata:
+  name: inventory-service
+spec:
+  selector:
+    app: inventory-backend
+  ports:
+    - protocol: TCP
+      port: 5001
+      targetPort: 5001
+  type: ClusterIP
+
+---
+
+# --- FRONTEND DEPLOYMENT ---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: store-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: store-frontend
+  template:
+    metadata:
+      labels:
+        app: store-frontend
+    spec:
+      containers:
+      - name: frontend
+        image: store-frontend:v1
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: INVENTORY_SERVICE_URL
+          value: "http://inventory-service:5001"
+        ports:
+        - containerPort: 5002
+
+---
+
+# --- FRONTEND SERVICE ---
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend-service
+spec:
+  selector:
+    app: store-frontend
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5002
+  type: LoadBalancer
