@@ -50,10 +50,10 @@ Follow these steps to deploy the application on a local Kubernetes cluster (Dock
 
 First, package the source code into Docker images. Run these commands from the root directory:
 
-# Build Backend Image
+Build Backend Image
 docker build -f Dockerfile.backend -t store-backend:v1 .
 
-# Build Frontend Image
+Build Frontend Image
 docker build -f Dockerfile.frontend -t store-frontend:v1 .
 
 
