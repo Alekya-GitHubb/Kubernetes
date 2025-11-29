@@ -1,8 +1,8 @@
 StoreManager: Microservices Inventory Application
 
-📋 Project Overview
+📋 Overview
 
-This project demonstrates the migration of a monolithic inventory management system into a distributed Microservices Architecture. The application is containerized using Docker and orchestrated using Kubernetes.
+This assignment demonstrates the migration of a monolithic inventory management system into a distributed Microservices Architecture. The application is containerized using Docker and orchestrated using Kubernetes.
 
 It consists of two decoupled services:
 
@@ -32,37 +32,15 @@ Kubernetes (k8s)
 
 📂 Project Structure
 
-File
-
-Description
-
-Frontend.py
-
-Source code for the User Interface service.
-
-Backend_api.py
-
-Source code for the Inventory Data API.
-
-Dockerfile.frontend
-
-Instructions to build the Frontend Docker image.
-
-Dockerfile.backend
-
-Instructions to build the Backend Docker image.
-
-k8s-deployment.yaml
-
-Kubernetes configuration for Deployments and Services.
-
-requirements.txt
-
-Python dependencies (Flask, requests, etc.).
-
-Architecture_Report.md
-
-Detailed documentation of the architectural evolution.
+| **File** | **Description** | 
+| :--- | :--- |
+| `Frontend.py` | Source code for the User Interface service. | 
+| `Backend_api.py` | Source code for the Inventory Data API. | 
+| `Dockerfile.frontend` | Instructions to build the Frontend Docker image. | 
+| `Dockerfile.backend` | Instructions to build the Backend Docker image. | 
+| `k8s-deployment.yaml` | Kubernetes configuration for Deployments and Services. | 
+| `requirements.txt` | Python dependencies (Flask, requests, etc.). | 
+| `Architecture_Report.md` | Detailed documentation of the architectural evolution. |
 
 🚀 How to Run (Deployment Guide)
 
