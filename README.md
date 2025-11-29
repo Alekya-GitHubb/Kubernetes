@@ -1,6 +1,8 @@
 StoreManager: Microservices Inventory Application
 
-📋 Overview
+---
+
+### 📋 Overview
 
 This assignment demonstrates the migration of a monolithic inventory management system into a distributed Microservices Architecture. The application is containerized using Docker and orchestrated using Kubernetes.
 
@@ -10,7 +12,9 @@ Frontend Service: A Flask-based UI that handles user interactions.
 
 Backend Service: A Flask-based REST API that manages inventory data.
 
-🏗️ Architecture
+---
+
+### 🏗️ Architecture
 
 The application uses a split architecture where the Frontend acts as a proxy client to the Backend.
 
@@ -30,7 +34,9 @@ Docker
 
 Kubernetes (k8s)
 
-📂 Project Structure
+---
+
+### 📂 Project Structure
 
 | **File** | **Description** | 
 | :--- | :--- |
@@ -42,7 +48,9 @@ Kubernetes (k8s)
 | `requirements.txt` | Python dependencies (Flask, requests, etc.). | 
 | `Architecture_Report.md` | Detailed documentation of the architectural evolution. |
 
-🚀 How to Run (Deployment Guide)
+---
+
+### 🚀 How to Run (Deployment Guide)
 
 Follow these steps to deploy the application on a local Kubernetes cluster (Docker Desktop, Minikube, or Kind).
 
@@ -84,7 +92,9 @@ Browser Access: Open http://localhost (or the EXTERNAL-IP listed for frontend-se
 
 You should see the StoreManager interface where you can Add and Delete items.
 
-🧪 API Endpoints
+---
+
+### 🧪 API Endpoints
 
 While the UI is the main entry point, the Backend API supports the following routes internally:
 
